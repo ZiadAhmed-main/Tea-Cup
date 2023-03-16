@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #444;
+    min-height: 100svh;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+}
+/* Drawing The Plate  */
+.plate {
+    width: 500px;
+    height: 200px;
+    background-color: rgb(255 255 255 / 80%);
+    border-radius: 50%;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:767px) {
+    .plate {
+        width: 365px;
+        height: 155px;
+    }
+}
+/* using before and after pseudo elements to make some styling */
+.plate::before ,
+.plate::after {
+    content: '';
+    position: absolute;
+}
+.plate::before {
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 50%;
+}
+/* using after pseudo element to draw the cup shadow */
+.plate::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 20px;
+    background: radial-gradient(rgb(0 0 0 / .2) 25%,transparent,transparent);
+}
+
+/* drawing the cup*/
+.cup {
+    position: relative;
+    z-index: 1000;
+    width: 280px;
+    height: 300px;
+    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    border-radius: 0 0 45% 45%;
+}
+@media (max-width:767px) {
+    .cup {
+        width: 250px;
+        height: 265px;
+    }
+}
+/* drawing a the top of the cup so it looks it's a 3D design */
+.top {
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to right, #d9d9d9 , #f9f9f9);
+    border-radius: 50%;
+}
+.tea {
+    position: absolute;
+    width: calc(100% - 30px);
+    left: 15px;
+    height: 50px;
+    background: linear-gradient(#c57e65, #e28462);
+    border-radius: 50%;
+    top: -25px;
+}
+.handle {
+    width: 160px;
+    height: 180px;
+    border-width: 25px;
+    border-style: solid;
+    border-color: #dcdcdc;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -72px;
+    top: 30px;
+}
+@media (max-width:767px) {
+    .handle {
+        width: 130px;
+        height: 145px;
+        border-width: 20px;
+        right: -59px;
+    }
+}
